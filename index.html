@@ -17,7 +17,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="theme-color" content="#000000" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
-  <!-- Option A: relaxed CSP to allow inline JS/CSS needed for progressive reveal -->
+  <!-- CSP allowing inline needed here -->
   <meta http-equiv="Content-Security-Policy" content="
     default-src 'self';
     img-src 'self' https: data:;
@@ -46,7 +46,7 @@
     .accent-ring { box-shadow: 0 0 0 2px #fff inset; }
     .ph { aspect-ratio: 4 / 3; border: 1px dashed rgba(255,255,255,.4); background: rgba(255,255,255,.03); border-radius: .75rem; display:flex; align-items:center; justify-content:center; font-size:.875rem; color:rgba(255,255,255,.75); text-transform:uppercase; letter-spacing:.06em; }
 
-    /* Progressive reveal: visible by default, animated only when JS is available */
+    /* Progressive reveal */
     .reveal{opacity:1; transform:none}
     .js .reveal{opacity:0; transform:translateY(20px)}
     .js .reveal.visible{opacity:1; transform:translateY(0)}
@@ -66,11 +66,16 @@
       .pulse-badge, .js .reveal.visible { animation:none !important }
       * { scroll-behavior: auto }
     }
+
+    /* Simple table styling on dark */
+    .table { width:100%; border-collapse: collapse; }
+    .table th, .table td { border-bottom: 1px solid rgba(255,255,255,.08); padding:.75rem; text-align:left; }
+    .table th { color:#fff; font-weight:600; }
+    .table caption { text-align:left; color:rgba(255,255,255,.7); padding-bottom:.5rem; }
+    details > summary { cursor:pointer; }
   </style>
 
-  <noscript>
-    <style>.reveal{opacity:1 !important; transform:none !important}</style>
-  </noscript>
+  <noscript><style>.reveal{opacity:1 !important; transform:none !important}</style></noscript>
 
   <!-- Organization -->
   <script type="application/ld+json">
@@ -158,28 +163,127 @@
   <section id="solutions" class="py-20 reveal">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <h2 class="text-2xl sm:text-3xl font-semibold">Solutions</h2>
-      <p class="mt-3 text-white/80 max-w-3xl">Modules that retrofit into existing devices and new builds. Each module enforces safety policies, logs decisions, and runs locally when possible.</p>
-      <div class="mt-10 grid md:grid-cols-2 gap-6">
+      <p class="mt-3 text-white/80 max-w-3xl">Modules retrofit into existing devices and new builds. Each module enforces safety policies, logs decisions, and favors local execution.</p>
+
+      <!-- Solution grid -->
+      <div class="mt-10 grid lg:grid-cols-3 md:grid-cols-2 gap-6">
+        <!-- Vision Guard -->
         <article class="card rounded-2xl p-6">
           <h3 class="font-semibold">Vision Guard</h3>
-          <hr class="my-4 border-white/10">
-          <p class="text-sm text-white/80">Camera intelligence that detects events without streaming raw video to the cloud.</p>
-          <ul class="mt-4 text-sm text-white/80 list-disc pl-5 space-y-2">
-            <li>Edge detection models</li>
-            <li>Privacy zones and masking</li>
-            <li>Encrypted event clips</li>
+          <p class="mt-2 text-sm text-white/80">Camera intelligence without cloud video. Local event detection with privacy tools.</p>
+          <ul class="mt-4 text-sm text-white/80 space-y-2 list-disc pl-5">
+            <li>Local models: motion, person, pet, package</li>
+            <li>Privacy zones, face blur, no raw upload</li>
+            <li>Event clip escrow with end-to-end encryption</li>
+            <li>Latency target: &lt;120 ms on Hub One</li>
           </ul>
+          <details class="mt-4">
+            <summary class="text-sm text-white/70">Compatibility</summary>
+            <ul class="mt-2 text-sm text-white/70 list-disc pl-5">
+              <li>RTSP/ONVIF cameras</li>
+              <li>Wi-Fi or PoE, H.264/H.265 input</li>
+            </ul>
+          </details>
         </article>
+
+        <!-- Energy Sense -->
         <article class="card rounded-2xl p-6">
           <h3 class="font-semibold">Energy Sense</h3>
-          <hr class="my-4 border-white/10">
-          <p class="text-sm text-white/80">HVAC and appliance optimization based on occupancy, weather, and tariffs.</p>
-          <ul class="mt-4 text-sm text-white/80 list-disc pl-5 space-y-2">
-            <li>Demand response</li>
-            <li>Comfort bands</li>
-            <li>Projected savings</li>
+          <p class="mt-2 text-sm text-white/80">HVAC and appliance optimization from occupancy, weather, and tariffs.</p>
+          <ul class="mt-4 text-sm text-white/80 space-y-2 list-disc pl-5">
+            <li>Comfort bands with adaptive setpoints</li>
+            <li>Time-of-use and demand response support</li>
+            <li>Forecast window: 24–72 hours</li>
+            <li>Expected savings: 8–18% baseline*</li>
+          </ul>
+          <p class="mt-2 text-xs text-white/60">*Varies by climate zone and insulation quality.</p>
+        </article>
+
+        <!-- Safe Audio Node -->
+        <article class="card rounded-2xl p-6">
+          <h3 class="font-semibold">Safe Audio Node</h3>
+          <p class="mt-2 text-sm text-white/80">Room assistant with hardware mute and auditable hotword.</p>
+          <ul class="mt-4 text-sm text-white/80 space-y-2 list-disc pl-5">
+            <li>Wake-word on device, no streaming</li>
+            <li>Dual microphones with beamforming</li>
+            <li>Physical cutoff and indicator LED</li>
+            <li>Command log with per-app scope</li>
           </ul>
         </article>
+
+        <!-- Doorway Presence -->
+        <article class="card rounded-2xl p-6">
+          <h3 class="font-semibold">Doorway Presence</h3>
+          <p class="mt-2 text-sm text-white/80">Low-power presence sensor for entries and hallways.</p>
+          <ul class="mt-4 text-sm text-white/80 space-y-2 list-disc pl-5">
+            <li>mmWave + PIR fusion to reduce false triggers</li>
+            <li>Occupancy handoff to lighting and HVAC</li>
+            <li>Battery life target: 2+ years</li>
+            <li>Local mesh networking</li>
+          </ul>
+        </article>
+
+        <!-- Water Sense -->
+        <article class="card rounded-2xl p-6">
+          <h3 class="font-semibold">Water Sense</h3>
+          <p class="mt-2 text-sm text-white/80">Leak detection and auto-shutoff with policy-based actions.</p>
+          <ul class="mt-4 text-sm text-white/80 space-y-2 list-disc pl-5">
+            <li>Inline valve control with fail-safe close</li>
+            <li>Distributed sensors under sinks and appliances</li>
+            <li>Event policies: notify → verify → shutoff</li>
+            <li>Audit trail for insurer documentation</li>
+          </ul>
+        </article>
+
+        <!-- Hub One -->
+        <article class="card rounded-2xl p-6">
+          <h3 class="font-semibold">Optivize Hub One</h3>
+          <p class="mt-2 text-sm text-white/80">Local policy engine and model runner. Orchestrates all modules.</p>
+          <ul class="mt-4 text-sm text-white/80 space-y-2 list-disc pl-5">
+            <li>Containerized apps with per-app permissions</li>
+            <li>Zero-trust network segmentation</li>
+            <li>Local vector store for private recall</li>
+            <li>Over-the-air signed updates</li>
+          </ul>
+        </article>
+      </div>
+
+      <!-- Solution comparison table -->
+      <div class="card rounded-2xl p-6 mt-10">
+        <h3 class="font-semibold">Capabilities by module</h3>
+        <div class="overflow-x-auto mt-4">
+          <table class="table text-sm text-white/80 min-w-[640px]">
+            <caption class="sr-only">Solution capability matrix</caption>
+            <thead>
+              <tr>
+                <th>Module</th>
+                <th>Local only</th>
+                <th>Cloud optional</th>
+                <th>Policy logs</th>
+                <th>Update cadence</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Vision Guard</td><td>Yes</td><td>Clip backup</td><td>Yes</td><td>Monthly</td></tr>
+              <tr><td>Energy Sense</td><td>Yes</td><td>Weather/tariff</td><td>Yes</td><td>Quarterly</td></tr>
+              <tr><td>Safe Audio Node</td><td>Yes</td><td>Optional skills</td><td>Yes</td><td>Monthly</td></tr>
+              <tr><td>Doorway Presence</td><td>Yes</td><td>No</td><td>Yes</td><td>As needed</td></tr>
+              <tr><td>Water Sense</td><td>Yes</td><td>Insurer export</td><td>Yes</td><td>As needed</td></tr>
+              <tr><td>Hub One</td><td>Yes</td><td>Model fetch</td><td>Yes</td><td>Monthly</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Workflows -->
+      <div class="card rounded-2xl p-6 mt-6">
+        <h3 class="font-semibold">Example automations</h3>
+        <ul class="mt-3 text-sm text-white/80 grid md:grid-cols-2 gap-2">
+          <li><strong>Night perimeter:</strong> after 11 pm, if Doorway Presence detects movement and Vision Guard classifies person, turn on hallway lights and start 60-second recording locally.</li>
+          <li><strong>Away mode:</strong> if all phones leave geofence and Energy Sense predicts peak pricing, raise setpoint by 3°F and pre-cool before return window.</li>
+          <li><strong>Leak response:</strong> if Water Sense detects leak for &gt;30 s, close main valve, notify phone, create audit entry with timestamp and location.</li>
+          <li><strong>Voice scope:</strong> Safe Audio Node accepts “kitchen lights 50%” but blocks “unlock door” unless owner presence confirmed.</li>
+        </ul>
       </div>
     </div>
   </section>
@@ -188,26 +292,126 @@
   <section id="safety" class="py-20 reveal">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <h2 class="text-2xl sm:text-3xl font-semibold">Safety</h2>
-      <div class="mt-6 grid lg:grid-cols-2 gap-6">
+      <p class="mt-3 text-white/80 max-w-3xl">Controls span device, network, and policy layers. Defaults favor deny, local processing, and transparent oversight.</p>
+
+      <div class="mt-8 grid lg:grid-cols-3 md:grid-cols-2 gap-6">
+        <!-- Principles -->
         <div class="card rounded-2xl p-6">
           <h3 class="font-semibold">Principles</h3>
           <hr class="my-4 border-white/10">
           <ul class="text-sm text-white/80 space-y-2">
-            <li>On-device by default</li>
-            <li>Explicit user consent</li>
-            <li>Transparent logs</li>
-            <li>Fail-safe actions</li>
+            <li>On-device by default, cloud optional</li>
+            <li>Explicit user consent per capability</li>
+            <li>Least-privilege for apps and automations</li>
+            <li>Fail-safe actions on error or loss of trust</li>
+            <li>Human-readable policy and change history</li>
           </ul>
         </div>
+
+        <!-- Data handling -->
         <div class="card rounded-2xl p-6">
-          <h3 class="font-semibold">Controls</h3>
+          <h3 class="font-semibold">Data handling</h3>
           <hr class="my-4 border-white/10">
           <ul class="text-sm text-white/80 space-y-2">
-            <li>Role-based permissions</li>
-            <li>Network isolation</li>
-            <li>Data minimization</li>
-            <li>Third-party audits</li>
+            <li>No raw video/audio leaves the home by default</li>
+            <li>Encrypted at rest on Hub One, AES-GCM</li>
+            <li>Encrypted in transit, TLS 1.3 only</li>
+            <li>Log redaction for PII in exports</li>
+            <li>Per-app data scopes with expiry</li>
           </ul>
+        </div>
+
+        <!-- Access control -->
+        <div class="card rounded-2xl p-6">
+          <h3 class="font-semibold">Access control</h3>
+          <hr class="my-4 border-white/10">
+          <ul class="text-sm text-white/80 space-y-2">
+            <li>Role-based access: Owner, Adult, Guest</li>
+            <li>Device PIN, passkey, or local LAN auth</li>
+            <li>Per-action confirmation for critical ops</li>
+            <li>Session-scoped tokens with rotation</li>
+          </ul>
+        </div>
+
+        <!-- Network security -->
+        <div class="card rounded-2xl p-6">
+          <h3 class="font-semibold">Network</h3>
+          <hr class="my-4 border-white/10">
+          <ul class="text-sm text-white/80 space-y-2">
+            <li>Service-to-service mTLS on the hub</li>
+            <li>Default deny egress for modules</li>
+            <li>Isolated VLAN optional for cameras/IoT</li>
+            <li>Signed DNS over TLS for lookups</li>
+          </ul>
+        </div>
+
+        <!-- Updates and supply chain -->
+        <div class="card rounded-2xl p-6">
+          <h3 class="font-semibold">Updates & supply chain</h3>
+          <hr class="my-4 border-white/10">
+          <ul class="text-sm text-white/80 space-y-2">
+            <li>Signed OTA updates with rollback</li>
+            <li>Reproducible builds for core services</li>
+            <li>SBOM published for each release</li>
+            <li>Third-party component pinning</li>
+          </ul>
+        </div>
+
+        <!-- Audit & incident -->
+        <div class="card rounded-2xl p-6">
+          <h3 class="font-semibold">Audit & incident</h3>
+          <hr class="my-4 border-white/10">
+          <ul class="text-sm text-white/80 space-y-2">
+            <li>Append-only logs with integrity checks</li>
+            <li>Owner-visible timeline of policy decisions</li>
+            <li>One-tap incident export for insurers</li>
+            <li>Local first-responder info card</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Threat scenarios -->
+      <div class="card rounded-2xl p-6 mt-8">
+        <h3 class="font-semibold">Threat scenarios and mitigations</h3>
+        <div class="mt-4 grid md:grid-cols-2 gap-6 text-sm text-white/80">
+          <div>
+            <p><strong>Cloud breach:</strong> Default local processing. Cloud used only for optional backups. Keys stored on hub’s secure element.</p>
+            <p class="mt-2"><strong>Stolen device:</strong> Disk encryption, remote revoke, auto logoff on tamper.</p>
+            <p class="mt-2"><strong>Malicious app:</strong> Per-app permissions, no raw sensor access without grant, network egress blocked by default.</p>
+          </div>
+          <div>
+            <p><strong>Voice spoofing:</strong> Wake-word liveness checks and owner presence for sensitive intents.</p>
+            <p class="mt-2"><strong>Camera takeover:</strong> VLAN isolation, RTSP read-only, per-camera keys.</p>
+            <p class="mt-2"><strong>Policy drift:</strong> Signed policy edits with owner approval and diff view.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Compliance placeholders -->
+      <div class="card rounded-2xl p-6 mt-6">
+        <h3 class="font-semibold">Verification</h3>
+        <div class="mt-4 grid md:grid-cols-3 gap-6 text-sm text-white/80">
+          <div>
+            <p class="font-medium">Independent testing</p>
+            <ul class="mt-2 list-disc pl-5 space-y-1">
+              <li>Penetration test summary PDF</li>
+              <li>Secure update attestation</li>
+            </ul>
+          </div>
+          <div>
+            <p class="font-medium">Policy transparency</p>
+            <ul class="mt-2 list-disc pl-5 space-y-1">
+              <li>Publish SBOM per release</li>
+              <li>Changelog with CVE notes</li>
+            </ul>
+          </div>
+          <div>
+            <p class="font-medium">User controls</p>
+            <ul class="mt-2 list-disc pl-5 space-y-1">
+              <li>Data export and local wipe</li>
+              <li>Per-module kill-switch</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -427,7 +631,7 @@
     const yEl = document.getElementById('y');
     if (yEl) yEl.textContent = new Date().getFullYear();
 
-    // Reveal on scroll with graceful fallback
+    // Reveal on scroll
     const io = 'IntersectionObserver' in window ? new IntersectionObserver((entries, obs) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
