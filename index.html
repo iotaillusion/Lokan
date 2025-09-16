@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Optivize — Safe AI for the Home</title>
+  <meta name="description" content="Optivize integrates AI into everyday home life with rigorous safety, privacy, and reliability." />
+  <meta property="og:title" content="Optivize — Safe AI for the Home" />
+  <meta property="og:description" content="Modern, sleek, and safety‑first home AI." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://optivize.example" />
+  <meta name="theme-color" content="#000000" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root { --bg:#000; --card:#0a0a0a; --border:#1f2937; --text:#fff; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; }
+    .glass { background: rgba(255,255,255,0.02); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); }
+    .card { background: var(--card); border: 1px solid var(--border); }
+    .accent-ring { box-shadow: 0 0 0 2px #fff inset; }
+    a { color: #fff; }
+
+    /* Animations */
+    @keyframes glow { 0%,100%{ filter: drop-shadow(0 0 1px rgba(255,255,255,.5)); } 50%{ filter: drop-shadow(0 0 5px rgba(255,255,255,.8)); } }
+    .btn-glow:hover { box-shadow: 0 0 10px rgba(255,255,255,.3); transition: box-shadow .3s ease-in-out; }
+    @keyframes pulse-soft { 0%,100%{ transform: scale(1); opacity:.8;} 50%{ transform: scale(1.03); opacity:1;} }
+    .pulse-badge { animation: pulse-soft 2s infinite ease-in-out; }
+    @keyframes pulse-slow { 0%,100%{ opacity:.5;} 50%{ opacity:1;} }
+    .animate-pulse-slow { animation: pulse-slow 3s infinite ease-in-out; }
+    .reveal { opacity:0; transform: translateY(20px); transition: opacity .6s cubic-bezier(.25,.46,.45,.94), transform .6s cubic-bezier(.25,.46,.45,.94); }
+    .reveal.visible { opacity:1; transform: translateY(0); }
+
+    /* Product placeholder */
+    .ph { height: 240px; border: 1px dashed rgba(255,255,255,.4); background: rgba(255,255,255,.03); border-radius: 0.75rem; display:flex; align-items:center; justify-content:center; font-size:.875rem; color:rgba(255,255,255,.65); text-transform:uppercase; letter-spacing:.06em; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Optivize",
+    "url": "https://optivize.example",
+    "logo": "https://optivize.example/logo.svg",
+    "description": "Optivize integrates AI into everyday home life with rigorous safety, privacy, and reliability.",
+    "sameAs": ["https://x.com/optivize", "https://www.linkedin.com/company/optivize"]
+  }
+  </script>
+</head>
+<body>
+  <!-- Top bar -->
+  <header class="sticky top-0 z-40">
+    <div class="glass">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+        <a href="#home" class="flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-white rounded-md">
+          <!-- Icon removed by request; brand text only -->
+          <span class="text-lg font-semibold tracking-tight">Optivize</span>
+        </a>
+        <nav class="hidden md:flex items-center gap-6 text-sm">
+          <a href="#solutions" class="text-white/80 hover:text-white">Solutions</a>
+          <a href="#safety" class="text-white/80 hover:text-white">Safety</a>
+          <a href="#how" class="text-white/80 hover:text-white">How it works</a>
+          <a href="#products" class="text-white/80 hover:text-white">Products</a>
+          <a href="#pricing" class="text-white/80 hover:text-white">Pricing</a>
+          <a href="#contact" class="text-white/80 hover:text-white">Contact</a>
+          <a href="#cta" class="ml-2 inline-flex items-center rounded-full bg-white px-4 py-2 text-black hover:bg-white/90 btn-glow">Get started</a>
+        </nav>
+        <button id="menuBtn" class="md:hidden p-2 rounded-md hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white" aria-label="Open menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobileMenu" class="md:hidden hidden border-t border-white/10 bg-black">
+      <div class="mx-auto max-w-7xl px-4 py-4 grid gap-3 text-sm">
+        <a href="#solutions" class="py-2">Solutions</a>
+        <a href="#safety" class="py-2">Safety</a>
+        <a href="#how" class="py-2">How it works</a>
+        <a href="#products" class="py-2">Products</a>
+        <a href="#pricing" class="py-2">Pricing</a>
+        <a href="#contact" class="py-2">Contact</a>
+        <a href="#cta" class="py-2">Get started</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="home" class="reveal">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="pt-20 pb-16 sm:pt-28 sm:pb-24">
+        <div class="max-w-3xl mx-auto text-center">
+          <h1 class="text-4xl sm:text-5xl font-semibold tracking-tight leading-tight">Safe, adaptive AI for every home</h1>
+          <p class="mt-4 text-white/80 max-w-xl mx-auto">Optivize integrates AI into everyday devices with verifiable safeguards, private on‑device processing, and predictable automation.</p>
+          <div class="mt-8 flex flex-wrap gap-3 justify-center">
+            <a id="cta" href="#contact" class="inline-flex items-center justify-center rounded-lg bg-white px-5 py-3 font-medium text-black hover:bg-white/90 btn-glow">Request early access</a>
+            <a href="#solutions" class="inline-flex items-center justify-center rounded-lg px-5 py-3 ring-1 ring-white/20 hover:bg-white/10">View solutions</a>
+          </div>
+          <div class="mt-8 flex items-center justify-center gap-6 text-xs text-white/60">
+            <div class="flex items-center">On‑device first</div>
+            <div class="flex items-center">End‑to‑end encrypted</div>
+            <div class="flex items-center">Auditable policies</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solutions -->
+  <section id="solutions" class="py-20 reveal">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl sm:text-3xl font-semibold">Solutions</h2>
+      <p class="mt-3 text-white/80 max-w-3xl">Modules that retrofit into existing devices and new builds. Each module enforces safety policies, logs decisions, and runs locally when possible.</p>
+      <div class="mt-10 grid md:grid-cols-2 gap-6">
+        <article class="card rounded-2xl p-6">
+          <h3 class="font-semibold">Vision Guard</h3>
+          <p class="mt-2 text-sm text-white/80">Camera intelligence that detects events without streaming raw video to the cloud.</p>
+          <ul class="mt-4 text-xs text-white/60 list-disc pl-5 space-y-1">
+            <li>Edge detection models</li>
+            <li>Privacy zones and masking</li>
+            <li>Encrypted event clips</li>
+          </ul>
+        </article>
+        <article class="card rounded-2xl p-6">
+          <h3 class="font-semibold">Energy Sense</h3>
+          <p class="mt-2 text-sm text-white/80">HVAC and appliance optimization based on occupancy, weather, and tariffs.</p>
+          <ul class="mt-4 text-xs text-white/60 list-disc pl-5 space-y-1">
+            <li>Demand response</li>
+            <li>Comfort bands</li>
+            <li>Projected savings</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Safety -->
+  <section id="safety" class="py-20 reveal">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl sm:text-3xl font-semibold">Safety</h2>
+      <div class="mt-6 grid lg:grid-cols-2 gap-6">
+        <div class="card rounded-2xl p-6">
+          <h3 class="font-semibold">Principles</h3>
+          <ul class="mt-3 text-sm text-white/80 space-y-2">
+            <li>On‑device by default</li>
+            <li>Explicit user consent</li>
+            <li>Transparent logs</li>
+            <li>Fail‑safe actions</li>
+          </ul>
+        </div>
+        <div class="card rounded-2xl p-6">
+          <h3 class="font-semibold">Controls</h3>
+          <ul class="mt-3 text-sm text-white/80 space-y-2">
+            <li>Role‑based permissions</li>
+            <li>Network isolation</li>
+            <li>Data minimization</li>
+            <li>Third‑party audits</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section id="how" class="py-20 reveal">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <h2 class="text-2xl sm:text-3xl font-semibold">Our Process</h2>
+        <p class="mt-3 text-white/80 max-w-2xl mx-auto">We follow a rigorous four-step process to ensure your home AI is safe, effective, and tailored to your needs.</p>
+      </div>
+      <div class="mt-12 grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="card rounded-2xl p-6">
+          <div class="w-12 h-12 rounded-lg bg-white/5 flex items-center justify-center">
+            <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+          </div>
+          <h3 class="mt-4 font-semibold">1. Assess</h3>
+          <p class="mt-2 text-sm text-white/60">Audit devices and network to map the ecosystem and risks.</p>
+        </div>
+        <div class="card rounded-2xl p-6">
+          <div class="w-12 h-12 rounded-lg bg-white/5 flex items-center justify-center">
+             <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+          </div>
+          <h3 class="mt-4 font-semibold">2. Configure</h3>
+          <p class="mt-2 text-sm text-white/60">Define least‑privilege policies and automation rules.</p>
+        </div>
+        <div class="card rounded-2xl p-6">
+          <div class="w-12 h-12 rounded-lg bg-white/5 flex items-center justify-center">
+            <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" /></svg>
+          </div>
+          <h3 class="mt-4 font-semibold">3. Deploy</h3>
+          <p class="mt-2 text-sm text-white/60">Install hub. Run models locally. Use cloud only for non‑sensitive bursts.</p>
+        </div>
+        <div class="card rounded-2xl p-6">
+          <div class="w-12 h-12 rounded-lg bg-white/5 flex items-center justify-center">
+             <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 20.944a11.955 11.955 0 0118-8.618c0-3.05-1.12-5.84-2.944-7.974z" /></svg>
+          </div>
+          <h3 class="mt-4 font-semibold">4. Verify</h3>
+          <p class="mt-2 text-sm text-white/60">Expose dashboards and auditable logs for full oversight.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products -->
+  <section id="products" class="py-20 reveal">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl sm:text-3xl font-semibold">Products</h2>
+      <p class="mt-3 text-white/80 max-w-3xl">Preview of upcoming devices and modules. All items are in development. Availability may change.</p>
+      <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <article class="card rounded-2xl p-6 flex flex-col">
+          <div class="ph">Placeholder</div>
+          <h3 class="mt-4 font-semibold">Optivize Hub One</h3>
+          <p class="mt-2 text-sm text-white/80">On‑device AI hub with secure connectors and policy engine.</p>
+          <div class="mt-4 flex items-center justify-between text-xs text-white/60">
+            <span class="inline-flex items-center rounded-full border border-white/20 px-2 py-1 pulse-badge">Coming soon</span>
+            <span>Q2 2026 target</span>
+          </div>
+          <button class="mt-4 inline-flex items-center justify-center rounded-lg px-4 py-2 ring-1 ring-white/20 hover:bg-white/10">Notify me</button>
+        </article>
+        <article class="card rounded-2xl p-6 flex flex-col">
+          <div class="ph">Placeholder</div>
+          <h3 class="mt-4 font-semibold">Vision Guard Mini</h3>
+          <p class="mt-2 text-sm text-white/80">Privacy‑first smart camera with local detection and masking.</p>
+          <div class="mt-4 flex items-center justify-between text-xs text-white/60">
+            <span class="inline-flex items-center rounded-full border border-white/20 px-2 py-1 pulse-badge">Coming soon</span>
+            <span>Q3 2026 target</span>
+          </div>
+          <button class="mt-4 inline-flex items-center justify-center rounded-lg px-4 py-2 ring-1 ring-white/20 hover:bg-white/10">Notify me</button>
+        </article>
+        <article class="card rounded-2xl p-6 flex flex-col">
+          <div class="ph">Placeholder</div>
+          <h3 class="mt-4 font-semibold">Energy Sense Relay</h3>
+          <p class="mt-2 text-sm text-white/80">Drop‑in smart relay for HVAC and major appliances.</p>
+          <div class="mt-4 flex items-center justify-between text-xs text-white/60">
+            <span class="inline-flex items-center rounded-full border border-white/20 px-2 py-1 pulse-badge">Coming soon</span>
+            <span>Q4 2026 target</span>
+          </div>
+          <button class="mt-4 inline-flex items-center justify-center rounded-lg px-4 py-2 ring-1 ring-white/20 hover:bg-white/10">Notify me</button>
+        </article>
+        <article class="card rounded-2xl p-6 flex flex-col">
+          <div class="ph">Placeholder</div>
+          <h3 class="mt-4 font-semibold">Safe Audio Node</h3>
+          <p class="mt-2 text-sm text-white/80">Room audio assistant with hardware mute and audit log.</p>
+          <div class="mt-4 flex items-center justify-between text-xs text-white/60">
+            <span class="inline-flex items-center rounded-full border border-white/20 px-2 py-1 pulse-badge">Coming soon</span>
+            <span>TBD</span>
+          </div>
+          <button class="mt-4 inline-flex items-center justify-center rounded-lg px-4 py-2 ring-1 ring-white/20 hover:bg-white/10">Notify me</button>
+        </article>
+        <article class="card rounded-2xl p-6 flex flex-col">
+          <div class="ph">Placeholder</div>
+          <h3 class="mt-4 font-semibold">Doorway Presence</h3>
+          <p class="mt-2 text-sm text-white/80">Low‑power presence sensor for entry and hallway logic.</p>
+          <div class="mt-4 flex items-center justify-between text-xs text-white/60">
+            <span class="inline-flex items-center rounded-full border border-white/20 px-2 py-1 pulse-badge">Coming soon</span>
+            <span>TBD</span>
+          </div>
+          <button class="mt-4 inline-flex items-center justify-center rounded-lg px-4 py-2 ring-1 ring-white/20 hover:bg-white/10">Notify me</button>
+        </article>
+        <article class="card rounded-2xl p-6 flex flex-col">
+          <div class="ph">Placeholder</div>
+          <h3 class="mt-4 font-semibold">Water Sense</h3>
+          <p class="mt-2 text-sm text-white/80">Leak detection and auto‑shutoff with policy‑based actions.</p>
+          <div class="mt-4 flex items-center justify-between text-xs text-white/60">
+            <span class="inline-flex items-center rounded-full border border-white/20 px-2 py-1 pulse-badge">Coming soon</span>
+            <span>TBD</span>
+          </div>
+          <button class="mt-4 inline-flex items-center justify-center rounded-lg px-4 py-2 ring-1 ring-white/20 hover:bg-white/10">Notify me</button>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing" class="py-20 reveal">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl sm:text-3xl font-semibold">Pricing</h2>
+      <div class="mt-8 grid md:grid-cols-3 gap-6">
+        <div class="card rounded-2xl p-6">
+          <p class="text-white/80 font-medium">Starter</p>
+          <p class="mt-2 text-3xl font-semibold">$19<span class="text-base text-white/60">/mo</span></p>
+          <ul class="mt-4 text-sm text-white/80 space-y-2">
+            <li>Optivize Home</li>
+            <li>Basic routines</li>
+            <li>Email support</li>
+          </ul>
+          <a href="#contact" class="mt-6 inline-flex w-full items-center justify-center rounded-lg px-4 py-2 ring-1 ring-white/20 hover:bg-white/10">Choose</a>
+        </div>
+        <div class="card rounded-2xl p-6 accent-ring">
+          <p class="text-white/80 font-medium">Pro</p>
+          <p class="mt-2 text-3xl font-semibold">$49<span class="text-base text-white/60">/mo</span></p>
+          <ul class="mt-4 text-sm text-white/80 space-y-2">
+            <li>All Starter features</li>
+            <li>Vision Guard + Energy Sense</li>
+            <li>Priority support</li>
+          </ul>
+          <a href="#contact" class="mt-6 inline-flex w-full items-center justify-center rounded-lg bg-white px-4 py-2 font-medium text-black hover:bg-white/90 btn-glow">Choose</a>
+        </div>
+        <div class="card rounded-2xl p-6">
+          <p class="text-white/80 font-medium">Enterprise</p>
+          <p class="mt-2 text-3xl font-semibold">Custom</p>
+          <ul class="mt-4 text-sm text-white/80 space-y-2">
+            <li>Multi‑property deployments</li>
+            <li>Custom policies</li>
+            <li>Dedicated support</li>
+          </ul>
+          <a href="#contact" class="mt-6 inline-flex w-full items-center justify-center rounded-lg px-4 py-2 ring-1 ring-white/20 hover:bg-white/10">Talk to sales</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-20 reveal">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl sm:text-3xl font-semibold">Contact</h2>
+      <div class="mt-8 grid lg:grid-cols-2 gap-6">
+        <form class="card rounded-2xl p-6" onsubmit="event.preventDefault(); document.getElementById('formMsg').classList.remove('hidden'); this.reset();">
+          <label class="block text-sm">Name
+            <input required type="text" class="mt-2 w-full rounded-lg bg-black border border-white/20 px-3 py-2" placeholder="Your name" />
+          </label>
+          <label class="block text-sm mt-4">Email
+            <input required type="email" class="mt-2 w-full rounded-lg bg-black border border-white/20 px-3 py-2" placeholder="you@example.com" />
+          </label>
+          <label class="block text-sm mt-4">Message
+            <textarea required rows="5" class="mt-2 w-full rounded-lg bg-black border border-white/20 px-3 py-2" placeholder="Tell us about your goals"></textarea>
+          </label>
+          <button class="mt-6 inline-flex items-center justify-center rounded-lg bg-white px-5 py-2 font-medium text-black hover:bg-white/90">Request access</button>
+          <p id="formMsg" class="hidden mt-3 text-sm text-white/70">Submitted. We will respond soon.</p>
+        </form>
+        <div class="card rounded-2xl p-6">
+          <h3 class="font-semibold">Details</h3>
+          <ul class="mt-3 text-sm text-white/80 space-y-2">
+            <li>Email: <a href="mailto:hello@optivize.example" class="underline decoration-white/40 hover:decoration-white">hello@optivize.example</a></li>
+            <li>HQ: Houston, TX</li>
+            <li>Support: Mon–Fri</li>
+          </ul>
+          <div class="ph mt-6" aria-hidden="true">Map Placeholder</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-white/10">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 text-sm text-white/70 flex flex-col md:flex-row gap-4 md:items-center md:justify-between">
+      <div class="flex items-center gap-2">
+        <span>© <span id="y"></span> Optivize</span>
+      </div>
+      <div class="flex gap-4">
+        <a href="#products" class="hover:text-white">Products</a>
+        <a href="#safety" class="hover:text-white">Safety</a>
+        <a href="#pricing" class="hover:text-white">Pricing</a>
+        <a href="#contact" class="hover:text-white">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const btn = document.getElementById('menuBtn');
+    const menu = document.getElementById('mobileMenu');
+    btn?.addEventListener('click', () => menu.classList.toggle('hidden'));
+
+    // Current year
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Reveal on scroll
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+  </script>
+</body>
+</html>
