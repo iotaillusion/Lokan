@@ -6,10 +6,10 @@
 
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Optivize — Safe AI for the Home</title>
+  <title>Optivize Safe AI for the Home</title>
   <meta name="description" content="Optivize integrates AI into everyday home life with rigorous safety, privacy, and reliability." />
   <link rel="canonical" href="https://optivize.example/" />
-  <meta property="og:title" content="Optivize — Safe AI for the Home" />
+  <meta property="og:title" content="Optivize Safe AI for the Home" />
   <meta property="og:description" content="Modern, sleek, and safety-first home AI." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://optivize.example/" />
@@ -102,9 +102,12 @@
   <header class="sticky top-0 z-40">
     <div class="glass">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        <a href="/" aria-current="page" class="flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-white rounded-md">
-          <span class="text-lg font-semibold tracking-tight">Optivize</span>
+        <!-- Top-left logo image (1:1) -->
+        <a href="#home" aria-current="page" class="flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-white rounded-md" aria-label="Optivize home">
+          <img src="1to1logotransparent.png" alt="Optivize logo" class="h-9 w-9 sm:h-10 sm:w-10" width="40" height="40" />
+          <span class="sr-only">Optivize</span>
         </a>
+
         <nav aria-label="Primary" class="hidden md:flex items-center gap-6 text-sm">
           <a href="#solutions" class="text-white/80 hover:text-white">Solutions</a>
           <a href="#safety" class="text-white/80 hover:text-white">Safety</a>
@@ -114,7 +117,7 @@
           <a href="#contact" class="text-white/80 hover:text-white">Contact</a>
           <a href="#cta" class="ml-2 inline-flex items-center rounded-full bg-white px-4 py-2 text-black hover:bg-white/90">Get started</a>
         </nav>
-        <button id="menuBtn" type="button" class="md:hidden p-2 rounded-md hover:bg白/10 focus:outline-none focus:ring-2 focus:ring-white" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false">
+        <button id="menuBtn" type="button" class="md:hidden p-2 rounded-md hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false">
           <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/></svg>
         </button>
       </div>
@@ -137,7 +140,10 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="pt-20 pb-16 sm:pt-28 sm:pb-24">
         <div class="max-w-3xl mx-auto text-center">
-          <h1 class="text-4xl sm:text-5xl font-semibold tracking-tight leading-tight">Safe, adaptive AI for every home</h1>
+          <!-- Top title image (1:1) -->
+          <img src="logotransparent.png" alt="Optivize" class="mx-auto h-24 w-24 sm:h-32 sm:w-32" width="128" height="128" />
+          <h1 class="sr-only">Optivize</h1>
+
           <p class="mt-4 text-white/80 max-w-xl mx-auto">Optivize integrates AI into everyday devices with verifiable safeguards, private on-device processing, and predictable automation.</p>
           <div class="mt-8 flex flex-wrap gap-3 justify-center">
             <a id="cta" href="#contact" class="inline-flex items-center justify-center rounded-lg bg-white px-5 py-3 font-medium text-black hover:bg-white/90">Request early access</a>
@@ -156,8 +162,10 @@
   <!-- Solutions -->
   <section id="solutions" class="py-20 reveal">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <h2 class="text-2xl sm:text-3xl font-semibold">Solutions</h2>
-      <p class="mt-3 text-white/80 max-w-3xl">Modules that retrofit into existing devices and new builds. Each module enforces safety policies, logs decisions, and runs locally when possible.</p>
+      <div class="text-center">
+        <h2 class="text-2xl sm:text-3xl font-semibold">Solutions</h2>
+        <p class="mt-3 text-white/80 max-w-3xl mx-auto">Modules that retrofit into existing devices and new builds. Each module enforces safety policies, logs decisions, and runs locally when possible.</p>
+      </div>
       <div class="mt-10 grid md:grid-cols-2 gap-6">
         <article class="card rounded-2xl p-6">
           <h3 class="font-semibold">Vision Guard</h3>
@@ -183,58 +191,75 @@
     </div>
   </section>
 
-  <!-- Safety -->
-  <section id="safety" class="py-20 reveal">
+  <!-- Safety: 3 boxes, each with 3 bullets -->
+  <section id="safety" class="py-20 reveal scroll-mt-24" aria-labelledby="safety-title">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <h2 class="text-2xl sm:text-3xl font-semibold">Safety</h2>
-      <div class="mt-6 grid lg:grid-cols-2 gap-6">
-        <div class="card rounded-2xl p-6">
-          <h3 class="font-semibold">Principles</h3>
+      <div class="text-center">
+        <h2 id="safety-title" class="text-2xl sm:text-3xl font-semibold">Safety</h2>
+        <p class="mt-3 text-white/90 max-w-3xl mx-auto">Nothing ships until it passes privacy, security, and reliability checks.</p>
+      </div>
+
+      <div class="mt-8 grid md:grid-cols-3 gap-6">
+        <article class="card rounded-2xl p-6">
+          <h3 class="font-semibold">Privacy</h3>
           <hr class="my-4 border-white/10">
-          <ul class="text-sm text-white/80 space-y-2">
-            <li>On-device by default</li>
-            <li>Explicit user consent</li>
-            <li>Transparent logs</li>
-            <li>Fail-safe actions</li>
+          <ul class="list-disc pl-5 space-y-2 text-sm text-white/90">
+            <li>On device by default.</li>
+            <li>You choose what to share.</li>
+            <li>Easy delete and export.</li>
           </ul>
-        </div>
-        <div class="card rounded-2xl p-6">
-          <h3 class="font-semibold">Controls</h3>
+        </article>
+
+        <article class="card rounded-2xl p-6">
+          <h3 class="font-semibold">Security</h3>
           <hr class="my-4 border-white/10">
-          <ul class="text-sm text-white/80 space-y-2">
-            <li>Role-based permissions</li>
-            <li>Network isolation</li>
-            <li>Data minimization</li>
-            <li>Third-party audits</li>
+          <ul class="list-disc pl-5 space-y-2 text-sm text-white/90">
+            <li>Signed updates and secure boot.</li>
+            <li>Encrypted links and isolated services.</li>
+            <li>Staged releases with rollback.</li>
           </ul>
-        </div>
+        </article>
+
+        <article class="card rounded-2xl p-6">
+          <h3 class="font-semibold">Control</h3>
+          <hr class="my-4 border-white/10">
+          <ul class="list-disc pl-5 space-y-2 text-sm text-white/90">
+            <li>Clear permissions per device.</li>
+            <li>Hardware mic and camera off.</li>
+            <li>Audit log for every action.</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="mt-8 text-center">
+        <a href="#home" class="text-sm underline decoration-white/30 hover:decoration-white">Back to top</a>
       </div>
     </div>
   </section>
 
-  <!-- How it works (icons removed) -->
+  <!-- How it works -->
   <section id="how" class="py-20 reveal">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="text-center">
         <h2 class="text-2xl sm:text-3xl font-semibold">Our Process</h2>
-        <p class="mt-3 text-white/80 max-w-2xl mx-auto">We follow a four-step process to ensure your home AI is safe, effective, and tailored to your needs.</p>
+        <p class="mt-3 text-white/80 max-w-2xl mx-auto">We follow a four step process to keep your home AI safe, effective, and tailored.</p>
       </div>
       <div class="mt-12 grid md:grid-cols-2 lg:grid-cols-4 gap-8">
         <div class="card rounded-2xl p-6">
           <h3 class="font-semibold">1. Assess</h3>
-          <p class="mt-2 text-sm text-white/70">Audit devices and network to map the ecosystem and risks.</p>
+          <p class="mt-2 text-sm text-white/70">Audit devices and network to map risks.</p>
         </div>
         <div class="card rounded-2xl p-6">
           <h3 class="font-semibold">2. Configure</h3>
-          <p class="mt-2 text-sm text-white/70">Define least-privilege policies and automation rules.</p>
+          <p class="mt-2 text-sm text-white/70">Define least privilege and automation rules.</p>
         </div>
         <div class="card rounded-2xl p-6">
           <h3 class="font-semibold">3. Deploy</h3>
-          <p class="mt-2 text-sm text-white/70">Install hub. Run models locally. Use cloud only for non-sensitive bursts.</p>
+          <p class="mt-2 text-sm text-white/70">Install hub. Run models locally. Use cloud only when needed.</p>
         </div>
         <div class="card rounded-2xl p-6">
           <h3 class="font-semibold">4. Verify</h3>
-          <p class="mt-2 text-sm text-white/70">Expose dashboards and auditable logs for full oversight.</p>
+          <p class="mt-2 text-sm text-white/70">Dashboards and logs for full oversight.</p>
         </div>
       </div>
     </div>
@@ -243,66 +268,36 @@
   <!-- Products -->
   <section id="products" class="py-20 reveal">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <h2 class="text-2xl sm:text-3xl font-semibold">Products</h2>
-      <p class="mt-3 text-white/80 max-w-3xl">Preview of upcoming devices and modules. All items are in development. Availability may change.</p>
+      <h2 class="text-2xl sm:text-3xl font-semibold text-center">Products</h2>
+      <p class="mt-3 text-white/80 max-w-3xl mx-auto text-center">Preview of upcoming devices and modules. All items are in development. Availability may change.</p>
       <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <article class="card rounded-2xl p-6 flex flex-col">
           <div class="ph" aria-hidden="true">Placeholder</div>
-          <h3 class="mt-4 font-semibold">Optivize Hub One</h3>
-          <p class="mt-2 text-sm text-white/80">On-device AI hub with secure connectors and policy engine.</p>
+          <h3 class="mt-4 font-semibold">Placeholder</h3>
+          <p class="mt-2 text-sm text-white/80">Placeholder</p>
           <div class="mt-4 flex items-center justify-between text-xs text-white/70">
             <span class="inline-flex items-center rounded-full border border-white/20 px-2 py-1 pulse-badge">Coming soon</span>
-            <span>Q2 2026 target</span>
+            <span>Q1 2026 target</span>
           </div>
           <button type="button" class="mt-4 inline-flex items-center justify-center rounded-lg px-4 py-2 ring-1 ring-white/20 hover:bg-white/10">Notify me</button>
         </article>
         <article class="card rounded-2xl p-6 flex flex-col">
           <div class="ph" aria-hidden="true">Placeholder</div>
-          <h3 class="mt-4 font-semibold">Vision Guard Mini</h3>
-          <p class="mt-2 text-sm text-white/80">Privacy-first smart camera with local detection and masking.</p>
+          <h3 class="mt-4 font-semibold">Placeholder</h3>
+          <p class="mt-2 text-sm text-white/80">Placeholder</p>
           <div class="mt-4 flex items-center justify-between text-xs text-white/70">
             <span class="inline-flex items-center rounded-full border border-white/20 px-2 py-1 pulse-badge">Coming soon</span>
-            <span>Q3 2026 target</span>
+            <span>Q1 2026 target</span>
           </div>
           <button type="button" class="mt-4 inline-flex items-center justify-center rounded-lg px-4 py-2 ring-1 ring-white/20 hover:bg-white/10">Notify me</button>
         </article>
         <article class="card rounded-2xl p-6 flex flex-col">
           <div class="ph" aria-hidden="true">Placeholder</div>
-          <h3 class="mt-4 font-semibold">Energy Sense Relay</h3>
-          <p class="mt-2 text-sm text-white/80">Drop-in smart relay for HVAC and major appliances.</p>
+          <h3 class="mt-4 font-semibold">Placeholder</h3>
+          <p class="mt-2 text-sm text-white/80">Placeholder</p>
           <div class="mt-4 flex items-center justify-between text-xs text-white/70">
             <span class="inline-flex items-center rounded-full border border-white/20 px-2 py-1 pulse-badge">Coming soon</span>
-            <span>Q4 2026 target</span>
-          </div>
-          <button type="button" class="mt-4 inline-flex items-center justify-center rounded-lg px-4 py-2 ring-1 ring-white/20 hover:bg-white/10">Notify me</button>
-        </article>
-        <article class="card rounded-2xl p-6 flex flex-col">
-          <div class="ph" aria-hidden="true">Placeholder</div>
-          <h3 class="mt-4 font-semibold">Safe Audio Node</h3>
-          <p class="mt-2 text-sm text-white/80">Room audio assistant with hardware mute and audit log.</p>
-          <div class="mt-4 flex items-center justify-between text-xs text-white/70">
-            <span class="inline-flex items-center rounded-full border border-white/20 px-2 py-1 pulse-badge">Coming soon</span>
-            <span>TBD</span>
-          </div>
-          <button type="button" class="mt-4 inline-flex items-center justify-center rounded-lg px-4 py-2 ring-1 ring-white/20 hover:bg-white/10">Notify me</button>
-        </article>
-        <article class="card rounded-2xl p-6 flex flex-col">
-          <div class="ph" aria-hidden="true">Placeholder</div>
-          <h3 class="mt-4 font-semibold">Doorway Presence</h3>
-          <p class="mt-2 text-sm text-white/80">Low-power presence sensor for entry and hallway logic.</p>
-          <div class="mt-4 flex items-center justify-between text-xs text-white/70">
-            <span class="inline-flex items-center rounded-full border border-white/20 px-2 py-1 pulse-badge">Coming soon</span>
-            <span>TBD</span>
-          </div>
-          <button type="button" class="mt-4 inline-flex items-center justify-center rounded-lg px-4 py-2 ring-1 ring-white/20 hover:bg-white/10">Notify me</button>
-        </article>
-        <article class="card rounded-2xl p-6 flex flex-col">
-          <div class="ph" aria-hidden="true">Placeholder</div>
-          <h3 class="mt-4 font-semibold">Water Sense</h3>
-          <p class="mt-2 text-sm text-white/80">Leak detection and auto-shutoff with policy-based actions.</p>
-          <div class="mt-4 flex items-center justify-between text-xs text-white/70">
-            <span class="inline-flex items-center rounded-full border border-white/20 px-2 py-1 pulse-badge">Coming soon</span>
-            <span>TBD</span>
+            <span>Q1 2026 target</span>
           </div>
           <button type="button" class="mt-4 inline-flex items-center justify-center rounded-lg px-4 py-2 ring-1 ring-white/20 hover:bg-white/10">Notify me</button>
         </article>
@@ -404,8 +399,8 @@
     const menu = document.getElementById('mobileMenu');
     if (btn && menu) {
       btn.addEventListener('click', () => {
-        const open = menu.classList.toggle('hidden');
-        btn.setAttribute('aria-expanded', String(!open));
+        const isHidden = menu.classList.toggle('hidden');
+        btn.setAttribute('aria-expanded', String(!isHidden));
       });
       menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.add('hidden')));
     }
