@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- JS-first flag for progressive reveal -->
   <script>document.documentElement.classList.add('js')</script>
-
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Optivize Safe AI for the Home</title>
@@ -15,8 +13,7 @@
   <meta property="og:url" content="https://optivize.example/" />
   <meta property="og:image" content="https://optivize.example/og.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="theme-color" content="#000000" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#000000" />
   <meta http-equiv="Content-Security-Policy" content="
     default-src 'self';
     img-src 'self' https: data:;
@@ -24,17 +21,14 @@
     font-src https://fonts.gstatic.com;
     script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com;
     connect-src 'self'">
-
   <link rel="icon" href="/favicon.ico">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
-
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
-
   <style>
     :root { --bg:#000; --card:#0a0a0a; --border:#1f2937; --text:#fff; }
     html { scroll-behavior: smooth; }
@@ -44,34 +38,22 @@
     .card { background: var(--card); border: 1px solid var(--border); }
     .accent-ring { box-shadow: 0 0 0 2px #fff inset; }
     .ph { aspect-ratio: 4 / 3; border: 1px dashed rgba(255,255,255,.4); background: rgba(255,255,255,.03); border-radius: .75rem; display:flex; align-items:center; justify-content:center; font-size:.875rem; color:rgba(255,255,255,.75); text-transform:uppercase; letter-spacing:.06em; }
-
-    /* Progressive reveal */
+    .logo-wide { width: min(90vw, 512px); height: auto; }
     .reveal{opacity:1; transform:none}
     .js .reveal{opacity:0; transform:translateY(20px)}
     .js .reveal.visible{opacity:1; transform:translateY(0)}
     @keyframes reveal { 0%{opacity:0;transform:translateY(20px)} 100%{opacity:1;transform:translateY(0)} }
     .js .reveal.visible { animation: reveal .6s cubic-bezier(.25,.46,.45,.94) both }
-
-    /* Pulse */
     @keyframes pulse-soft { 0%,100%{ transform: scale(1); opacity:.85 } 50%{ transform: scale(1.03); opacity:1 } }
     .pulse-badge { animation: pulse-soft 2s infinite ease-in-out }
-
-    /* Accessibility */
     .sr-skip:focus { position: fixed; top:.5rem; left:.5rem; background:#fff; color:#000; padding:.5rem .75rem; border-radius:.375rem; z-index:50 }
     :focus-visible { outline:2px solid #fff; outline-offset:2px }
-
-    /* Motion reduce */
     @media (prefers-reduced-motion: reduce){
       .pulse-badge, .js .reveal.visible { animation:none !important }
       * { scroll-behavior: auto }
     }
   </style>
-
-  <noscript>
-    <style>.reveal{opacity:1 !important; transform:none !important}</style>
-  </noscript>
-
-  <!-- Organization -->
+  <noscript><style>.reveal{opacity:1 !important; transform:none !important}</style></noscript>
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -83,7 +65,6 @@
     "sameAs":["https://x.com/optivize","https://www.linkedin.com/company/optivize"]
   }
   </script>
-  <!-- Example Product -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -102,9 +83,8 @@
   <header class="sticky top-0 z-40">
     <div class="glass">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        <!-- Top-left logo image (1:1) -->
         <a href="#home" aria-current="page" class="flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-white rounded-md" aria-label="Optivize home">
-          <img src="1to1logotransparent.png" alt="Optivize logo" class="h-9 w-9 sm:h-10 sm:w-10" width="40" height="40" />
+          <img src="1to1logotransparent.png" alt="Optivize logo" class="h-9 w-9 sm:h-10 sm:w-10" width="40" height="40" loading="eager" decoding="async" />
           <span class="sr-only">Optivize</span>
         </a>
 
@@ -140,14 +120,21 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="pt-20 pb-16 sm:pt-28 sm:pb-24">
         <div class="max-w-3xl mx-auto text-center">
-          <!-- Top title image (1:1) -->
-          <img src="logotransparent.png" alt="Optivize" class="mx-auto h-24 w-24 sm:h-32 sm:w-32" width="512" height="138" />
+          <!-- Top title image 512x138 ratio preserved -->
+          <img
+            src="logotransparent.png"
+            alt="Optivize"
+            class="mx-auto logo-wide"
+            width="512" height="138"
+            loading="eager" fetchpriority="high" decoding="async"
+            sizes="(max-width: 640px) 90vw, 512px"
+          />
           <h1 class="sr-only">Optivize</h1>
 
           <p class="mt-4 text-white/80 max-w-xl mx-auto">Optivize integrates AI into everyday devices with verifiable safeguards, private on-device processing, and predictable automation.</p>
           <div class="mt-8 flex flex-wrap gap-3 justify-center">
             <a id="cta" href="#contact" class="inline-flex items-center justify-center rounded-lg bg-white px-5 py-3 font-medium text-black hover:bg-white/90">Request early access</a>
-            <a href="#solutions" class="inline-flex items-center justify-center rounded-lg px-5 py-3 ring-1 ring-white/20 hover:bg-white/10">View solutions</a>
+            <a href="#solutions" class="inline-flex items-center justify-center rounded-lg px-5 py-3 ring-1 ring-white/20 hover:bg:white/10 hover:bg-white/10">View solutions</a>
           </div>
           <div class="mt-8 flex items-center justify-center gap-6 text-xs text-white/70">
             <div>On-device first</div>
@@ -191,7 +178,7 @@
     </div>
   </section>
 
-  <!-- Safety: 3 boxes, each with 3 bullets -->
+  <!-- Safety -->
   <section id="safety" class="py-20 reveal scroll-mt-24" aria-labelledby="safety-title">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="text-center">
@@ -359,7 +346,6 @@
           <label class="block text-sm mt-4">Message
             <textarea required rows="5" autocomplete="off" class="mt-2 w-full rounded-lg bg-black border border-white/20 px-3 py-2" placeholder="Tell us about your goals"></textarea>
           </label>
-          <!-- Honeypot -->
           <input type="text" name="company_website" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true">
           <button class="mt-6 inline-flex items-center justify-center rounded-lg bg-white px-5 py-2 font-medium text-black hover:bg-white/90">Request access</button>
           <p id="formMsg" role="status" aria-live="polite" class="hidden mt-3 text-sm text-white/75">Submitted. We will respond soon.</p>
