@@ -121,6 +121,13 @@
       .pulse-badge, .js .reveal.visible { animation:none !important }
       * { scroll-behavior: auto }
     }
+
+    /* Responsive logo scaling */
+    #logoBig { width: 100%; max-width: 512px; height: auto; aspect-ratio: 512/138; }
+    #logoSmall { height: 2.25rem; width: 2.25rem; }
+    @media (max-width: 640px){
+      #logoSmall { height: 2rem; width: 2rem; }
+    }
   </style>
 
   <noscript>
@@ -136,7 +143,7 @@
     <div class="glass">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         <a href="#home" aria-current="page" class="flex items-center gap-2 focus:outline-none focus:ring-2 rounded-md" aria-label="Lokan home">
-          <img id="logoSmall" src="1to1transparentdark.png" alt="Lokan logo" class="h-10 w-10 sm:h-10 sm:w-10" width="30" height="30" />
+          <img id="logoSmall" src="1to1transparentdark.png" alt="Lokan logo" class="block" width="36" height="36" />
           <span class="sr-only">Lokan</span>
         </a>
 
@@ -189,7 +196,15 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="pt-20 pb-16 sm:pt-28 sm:pb-24">
         <div class="max-w-3xl mx-auto text-center">
-          <img id="logoBig" src="logotransparentdark.png" alt="Lokan" class="mx-auto h-[138px] w-[512px]" width="512" height="138" />
+          <img
+            id="logoBig"
+            src="logotransparentdark.png"
+            alt="Lokan"
+            class="mx-auto block w-full max-w-[512px] h-auto"
+            width="512"
+            height="138"
+            sizes="(max-width: 640px) 90vw, 512px"
+          />
           <h1 class="sr-only">Lokan</h1>
 
           <p class="mt-4 text-white/80 max-w-xl mx-auto">Lokan integrates AI into everyday devices with verifiable safeguards, private on-device processing, and predictable automation.</p>
