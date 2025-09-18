@@ -1,0 +1,242 @@
+:root {
+  --bg: #000;
+  --card: #0a0a0a;
+  --border: #1f2937;
+  --text: #fff;
+  --muted: rgba(255, 255, 255, 0.8);
+  --muted2: rgba(255, 255, 255, 0.7);
+  --muted3: rgba(255, 255, 255, 0.75);
+  --muted4: rgba(255, 255, 255, 0.9);
+  --accent-ring: #fff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+}
+
+a {
+  color: var(--text);
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+}
+
+.accent-ring {
+  box-shadow: 0 0 0 2px var(--accent-ring) inset;
+}
+
+.ph {
+  height: 400px;
+  border: 1px dashed rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.75);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.reveal {
+  opacity: 1;
+  transform: none;
+}
+
+.js .reveal {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.js .reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes reveal {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.js .reveal.visible {
+  animation: reveal 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@keyframes pulse-soft {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.85;
+  }
+  50% {
+    transform: scale(1.03);
+    opacity: 1;
+  }
+}
+
+.pulse-badge {
+  animation: pulse-soft 2s infinite ease-in-out;
+}
+
+.sr-skip:focus {
+  position: fixed;
+  top: 0.5rem;
+  left: 0.5rem;
+  background: #fff;
+  color: #000;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.375rem;
+  z-index: 50;
+}
+
+:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+.btn-primary {
+  font-weight: 500;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1.25rem;
+}
+
+[data-theme="dark"] .btn-primary {
+  background: #fff;
+  color: #000;
+}
+
+[data-theme="dark"] .btn-primary:hover {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+[data-theme="light"] .btn-primary {
+  background: #000;
+  color: #fff;
+}
+
+[data-theme="light"] .btn-primary:hover {
+  background: rgba(0, 0, 0, 0.85);
+}
+
+.btn-ghost {
+  border-radius: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  border: 1px solid;
+}
+
+[data-theme="light"] {
+  --bg: #ffffff;
+  --card: #f7f7f8;
+  --border: #e5e7eb;
+  --text: #000000;
+  --muted: rgba(0, 0, 0, 0.8);
+  --muted2: rgba(0, 0, 0, 0.7);
+  --muted3: rgba(0, 0, 0, 0.75);
+  --muted4: rgba(0, 0, 0, 0.9);
+  --accent-ring: #000;
+}
+
+[data-theme="light"] .glass {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+[data-theme="light"] .ph {
+  border-color: rgba(0, 0, 0, 0.25);
+  background: rgba(0, 0, 0, 0.02);
+  color: rgba(0, 0, 0, 0.65);
+}
+
+.text-white\/80 {
+  color: var(--muted) !important;
+}
+
+.text-white\/70 {
+  color: var(--muted2) !important;
+}
+
+.text-white\/75 {
+  color: var(--muted3) !important;
+}
+
+.text-white\/90 {
+  color: var(--muted4) !important;
+}
+
+.hover\:text-white:hover {
+  color: var(--text) !important;
+}
+
+.border-white\/10 {
+  border-color: color-mix(in oklab, var(--text) 10%, transparent) !important;
+}
+
+.border-white\/20 {
+  border-color: color-mix(in oklab, var(--text) 20%, transparent) !important;
+}
+
+.border-white\/50 {
+  border-color: color-mix(in oklab, var(--text) 50%, transparent) !important;
+}
+
+.ring-white\/20 {
+  --tw-ring-color: color-mix(in oklab, var(--text) 20%, transparent) !important;
+}
+
+.ring-white\/50 {
+  --tw-ring-color: color-mix(in oklab, var(--text) 50%, transparent) !important;
+}
+
+.hover\:bg-white\/10:hover {
+  background-color: color-mix(in oklab, var(--text) 10%, transparent) !important;
+}
+
+.bg-white {
+  background-color: var(--text) !important;
+  color: var(--bg) !important;
+}
+
+.text-black {
+  color: var(--bg) !important;
+}
+
+.bg-black {
+  background-color: var(--bg) !important;
+  color: var(--text) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pulse-badge,
+  .js .reveal.visible {
+    animation: none !important;
+  }
+
+  * {
+    scroll-behavior: auto;
+  }
+}
+
+.no-js .reveal {
+  opacity: 1 !important;
+  transform: none !important;
+}
