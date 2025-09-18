@@ -121,13 +121,6 @@
       .pulse-badge, .js .reveal.visible { animation:none !important }
       * { scroll-behavior: auto }
     }
-
-    /* Responsive logo scaling */
-    #logoBig { width: 100%; max-width: 512px; height: auto; aspect-ratio: 512/138; }
-    #logoSmall { height: 2.25rem; width: 2.25rem; }
-    @media (max-width: 640px){
-      #logoSmall { height: 2rem; width: 2rem; }
-    }
   </style>
 
   <noscript>
@@ -143,7 +136,7 @@
     <div class="glass">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         <a href="#home" aria-current="page" class="flex items-center gap-2 focus:outline-none focus:ring-2 rounded-md" aria-label="Lokan home">
-          <img id="logoSmall" src="1to1transparentdark.png" alt="Lokan logo" class="block" width="36" height="36" />
+          <img id="logoSmall" src="1to1transparentdark.png" alt="Lokan logo" class="h-10 w-10 sm:h-10 sm:w-10" width="30" height="30" />
           <span class="sr-only">Lokan</span>
         </a>
 
@@ -196,15 +189,7 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="pt-20 pb-16 sm:pt-28 sm:pb-24">
         <div class="max-w-3xl mx-auto text-center">
-          <img
-            id="logoBig"
-            src="logotransparentdark.png"
-            alt="Lokan"
-            class="mx-auto block w-full max-w-[512px] h-auto"
-            width="512"
-            height="138"
-            sizes="(max-width: 640px) 90vw, 512px"
-          />
+          <img id="logoBig" src="logotransparentdark.png" alt="Lokan" class="mx-auto h-[138px] w-[512px]" width="512" height="138" />
           <h1 class="sr-only">Lokan</h1>
 
           <p class="mt-4 text-white/80 max-w-xl mx-auto">Lokan integrates AI into everyday devices with verifiable safeguards, private on-device processing, and predictable automation.</p>
@@ -335,8 +320,8 @@
         <!-- Placeholder card 1 -->
         <article class="card rounded-2xl p-6 flex flex-col w-full max-w-sm">
           <div class="ph" aria-hidden="true">Placeholder</div>
-          <h3 class="mt-4 font-semibold">Placeholder</h3>
-          <p class="mt-2 text-sm text-white/80">Placeholder</p>
+          <h3 class="mt-4 font-semibold">Lokan Home Hub</h3>
+          <p class="mt-2 text-sm text-white/80">The brain of your smart home. Runs automations locally, supports Matter, Zigbee, and Wi-Fi, and keeps devices working even without internet.</p>
           <div class="mt-4 flex items-center justify-between text-xs text-white/70">
             <span class="inline-flex items-center rounded-full border border-white/50 px-2 py-1 pulse-badge">Coming soon</span>
             <span>Q1 2026 target</span>
@@ -347,11 +332,11 @@
         <!-- Placeholder card 2 -->
         <article class="card rounded-2xl p-6 flex flex-col w-full max-w-sm">
           <div class="ph" aria-hidden="true">Placeholder</div>
-          <h3 class="mt-4 font-semibold">Placeholder</h3>
-          <p class="mt-2 text-sm text-white/80">Placeholder</p>
+          <h3 class="mt-4 font-semibold">Lokan Smart Bulb</h3>
+          <p class="mt-2 text-sm text-white/80">Adaptive lighting that learns your habits, shifts color temperature through the day, and works entirely on local control.</p>
           <div class="mt-4 flex items-center justify-between text-xs text-white/70">
             <span class="inline-flex items-center rounded-full border border-white/20 px-2 py-1 pulse-badge">Coming soon</span>
-            <span>Q1 2026 target</span>
+            <span>Q2 2026 target</span>
           </div>
           <button type="button" class="mt-4 inline-flex items-center justify-center rounded-lg px-4 py-2 ring-1 ring-white/20 hover:bg-white/10">Notify me</button>
         </article>
@@ -359,11 +344,11 @@
         <!-- Placeholder card 3 -->
         <article class="card rounded-2xl p-6 flex flex-col w-full max-w-sm">
           <div class="ph" aria-hidden="true">Placeholder</div>
-          <h3 class="mt-4 font-semibold">Placeholder</h3>
-          <p class="mt-2 text-sm text-white/80">Placeholder</p>
+          <h3 class="mt-4 font-semibold">Lokan Secure Plug</h3>
+          <p class="mt-2 text-sm text-white/80">Turn devices on or off remotely, monitor energy use, and protect against overloads with encrypted, private control.</p>
           <div class="mt-4 flex items-center justify-between text-xs text-white/70">
             <span class="inline-flex items-center rounded-full border border-white/20 px-2 py-1 pulse-badge">Coming soon</span>
-            <span>Q1 2026 target</span>
+            <span>Q3 2026 target</span>
           </div>
           <button type="button" class="mt-4 inline-flex items-center justify-center rounded-lg px-4 py-2 ring-1 ring-white/20 hover:bg-white/10">Notify me</button>
         </article>
