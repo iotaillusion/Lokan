@@ -55,7 +55,7 @@ a {
 
 .map-wrapper {
   position: relative;
-  height: 400px;
+  height: clamp(220px, 50vw, 420px);
   border-radius: 0.75rem;
   overflow: hidden;
   border: 1px solid var(--border);
