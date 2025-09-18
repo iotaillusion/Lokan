@@ -20,7 +20,8 @@
     style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
     font-src https://fonts.gstatic.com;
     script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com;
-    connect-src 'self'">
+    connect-src 'self';
+    frame-src 'self' https://www.google.com https://maps.google.com">
   <link rel="icon" href="/favicon.ico">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
@@ -328,7 +329,15 @@
             <li>HQ: Temple, TX</li>
             <li>Support: Mon–Fri</li>
           </ul>
-          <div class="ph mt-6" aria-hidden="true">Map Placeholder</div>
+          <div class="map-wrapper mt-6" aria-label="Map showing 12525 FM2305, Belton, Texas">
+            <iframe
+              title="Map showing 12525 FM2305, Belton, Texas"
+              src="https://maps.google.com/maps?q=12525%20FM2305%2C%20Belton%2C%20TX%2076513&output=embed"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen>
+            </iframe>
+          </div>
         </div>
       </div>
     </div>
