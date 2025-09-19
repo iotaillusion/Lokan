@@ -12,20 +12,20 @@ document.documentElement.classList.add('js');
 
   function applyTheme(mode) {
     root.setAttribute('data-theme', mode);
+
     const sun = document.getElementById('iconSun');
     const moon = document.getElementById('iconMoon');
+
     const iconLogo = document.getElementById('headerLogoIcon');
     const wordmarkLogo = document.getElementById('headerLogoWordmark');
+    const heroLogo = document.getElementById('heroLogoWordmark');
 
     const swapLogo = (img) => {
       if (!img) return;
       const lightSrc = img.getAttribute('data-light-src');
       const darkSrc = img.getAttribute('data-dark-src');
-      if (mode === 'light' && lightSrc) {
-        img.src = lightSrc;
-      } else if (mode === 'dark' && darkSrc) {
-        img.src = darkSrc;
-      }
+      if (mode === 'light' && lightSrc) img.src = lightSrc;
+      else if (mode === 'dark' && darkSrc) img.src = darkSrc;
     };
 
     if (sun && moon) {
@@ -40,6 +40,7 @@ document.documentElement.classList.add('js');
 
     swapLogo(iconLogo);
     swapLogo(wordmarkLogo);
+    swapLogo(heroLogo);
   }
 
   applyTheme(startTheme);
@@ -84,12 +85,9 @@ const io =
 if (io) {
   document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
 } else {
-  document
-    .querySelectorAll('.reveal')
-    .forEach((el) => el.classList.add('visible'));
+  document.querySelectorAll('.reveal').forEach((el) => el.classList.add('visible'));
 }
 
-// intercept the contact form submit
 document.querySelector('#contact-form')?.addEventListener('submit', async (e) => {
   e.preventDefault();
   const f = e.target;

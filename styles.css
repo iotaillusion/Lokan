@@ -26,7 +26,6 @@ body {
   display: block;
   object-fit: cover;
   border-radius: 1rem;
-  box-shadow: 0 8px 20px rgba(34, 211, 238, 0.25);
 }
 
 @media (min-width: 640px) {
@@ -47,6 +46,18 @@ body {
   width: clamp(160px, 28vw, 280px);
   height: auto;
   opacity: 0.92;
+  display: block;
+}
+
+.hero-logo {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-logo img {
+  width: clamp(200px, 60vw, 480px);
+  height: auto;
   display: block;
 }
 
