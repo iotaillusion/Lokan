@@ -29,6 +29,20 @@
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+
+  <!-- Prevent FOUC: set js flag and initial theme before paint -->
+  <script>
+    (function () {
+      const d = document.documentElement;
+      d.classList.remove('no-js'); d.classList.add('js');
+      const KEY = 'lokan-theme';
+      const saved = localStorage.getItem(KEY);
+      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const mode = saved || (prefersDark ? 'dark' : 'light');
+      d.setAttribute('data-theme', mode);
+    })();
+  </script>
+
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="main.js" defer></script>
 </head>
@@ -132,6 +146,7 @@
     </div>
   </section>
 
+  <!-- Sections unchanged below -->
   <section id="solutions" class="py-20 reveal">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="text-center">
@@ -319,7 +334,6 @@
      </div>
    </div>
   </section>
-
 
   <section id="contact" class="py-20 reveal">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
