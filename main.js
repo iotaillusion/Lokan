@@ -14,6 +14,20 @@ document.documentElement.classList.add('js');
     root.setAttribute('data-theme', mode);
     const sun = document.getElementById('iconSun');
     const moon = document.getElementById('iconMoon');
+    const iconLogo = document.getElementById('headerLogoIcon');
+    const wordmarkLogo = document.getElementById('headerLogoWordmark');
+
+    const swapLogo = (img) => {
+      if (!img) return;
+      const lightSrc = img.getAttribute('data-light-src');
+      const darkSrc = img.getAttribute('data-dark-src');
+      if (mode === 'light' && lightSrc) {
+        img.src = lightSrc;
+      } else if (mode === 'dark' && darkSrc) {
+        img.src = darkSrc;
+      }
+    };
+
     if (sun && moon) {
       if (mode === 'light') {
         sun.classList.remove('hidden');
@@ -23,6 +37,9 @@ document.documentElement.classList.add('js');
         sun.classList.add('hidden');
       }
     }
+
+    swapLogo(iconLogo);
+    swapLogo(wordmarkLogo);
   }
 
   applyTheme(startTheme);
