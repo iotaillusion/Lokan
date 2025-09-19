@@ -76,109 +76,19 @@ if (io) {
     .forEach((el) => el.classList.add('visible'));
 }
 
-const contactForm = document.getElementById('contactForm');
-if (contactForm) {
-  const successMessage = document.getElementById('formMsg');
-  const errorMessage = document.getElementById('formError');
-  const submitButton = contactForm.querySelector('button[type="submit"]');
-  const defaultButtonText = submitButton ? submitButton.textContent : '';
-
-  const resetMessages = () => {
-    if (successMessage) {
-      successMessage.classList.add('hidden');
-    }
-    if (errorMessage) {
-      errorMessage.classList.add('hidden');
-      errorMessage.textContent = '';
-    }
+// intercept the contact form submit
+document.querySelector('#contact-form')?.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const f = e.target;
+  const payload = {
+    name: f.name.value.trim(),
+    email: f.email.value.trim(),
+    message: f.message.value.trim()
   };
-
-  const setError = (message) => {
-    if (errorMessage) {
-      errorMessage.textContent = message;
-      errorMessage.classList.remove('hidden');
-    }
-  };
-
-  const setSuccess = (message) => {
-    if (successMessage) {
-      successMessage.textContent = message;
-      successMessage.classList.remove('hidden');
-    }
-  };
-
-  contactForm.addEventListener('submit', async (event) => {
-    event.preventDefault();
-    resetMessages();
-
-    if (!contactForm.checkValidity()) {
-      contactForm.reportValidity();
-      return;
-    }
-
-    const formData = new FormData(contactForm);
-    if (formData.get('company_website')) {
-      contactForm.reset();
-      return;
-    }
-
-    const payload = {
-      name: String(formData.get('name') || '').trim(),
-      email: String(formData.get('email') || '').trim(),
-      message: String(formData.get('message') || '').trim(),
-      source: 'lokan-contact-form'
-    };
-
-    if (!payload.name || !payload.email || !payload.message) {
-      setError('Please fill in your name, email, and message.');
-      return;
-    }
-
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailPattern.test(payload.email)) {
-      setError('Please provide a valid email address.');
-      return;
-    }
-
-    if (submitButton) {
-      submitButton.disabled = true;
-      submitButton.textContent = 'Sending…';
-      submitButton.setAttribute('aria-busy', 'true');
-    }
-
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(payload)
-      });
-
-      let data = null;
-      try {
-        data = await response.json();
-      } catch (parseError) {
-        data = null;
-      }
-
-      if (!response.ok) {
-        const message = data && data.error ? data.error : 'We could not send your message. Please try again.';
-        throw new Error(message);
-      }
-
-      contactForm.reset();
-      const message = data && data.message ? data.message : 'Thanks for reaching out! We will be in touch shortly.';
-      setSuccess(message);
-    } catch (error) {
-      console.error(error);
-      setError(error && error.message ? error.message : 'We could not submit your request. Please try again in a moment.');
-    } finally {
-      if (submitButton) {
-        submitButton.disabled = false;
-        submitButton.textContent = defaultButtonText;
-        submitButton.removeAttribute('aria-busy');
-      }
-    }
+  const r = await fetch('/api/contact', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload)
   });
-}
+  alert(r.ok ? 'Sent' : 'Failed');
+});
