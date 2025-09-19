@@ -37,12 +37,17 @@
 
   <header class="sticky top-0 z-40">
     <div class="glass">
-      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-14 sm:h-16 flex items-center justify-between">
-        <a href="#home" aria-current="page" class="flex items-center gap-2 focus:outline-none focus:ring-2 rounded-md" aria-label="Lokan home">
-          <span class="text-base font-semibold tracking-tight">Lokan</span>
+      <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-14 sm:h-16 flex items-center justify-between">
+        <a href="#home" aria-current="page" class="relative z-10 flex items-center gap-2 focus:outline-none focus:ring-2 rounded-md" aria-label="Lokan home">
+          <img src="assets/logo-icon.svg" alt="Lokan logo" class="header-logo-icon" />
+          <span class="sr-only">Lokan</span>
         </a>
 
-        <nav aria-label="Primary" class="hidden md:flex items-center gap-6 text-sm">
+        <div class="header-logo-center pointer-events-none">
+          <img src="assets/logo-wordmark.svg" alt="Lokan" />
+        </div>
+
+        <nav aria-label="Primary" class="hidden md:flex items-center gap-6 text-sm relative z-10">
           <a href="#solutions" class="text-white/80 hover:text-white">Solutions</a>
           <a href="#safety" class="text-white/80 hover:text-white">Safety</a>
           <a href="#how" class="text-white/80 hover:text-white">How it works</a>
@@ -53,7 +58,7 @@
           <a href="#cta" class="ml-2 inline-flex items-center rounded-full px-4 py-2 btn-primary">Get started</a>
         </nav>
 
-        <div class="flex items-center gap-2">
+        <div class="relative z-10 flex items-center gap-2">
           <button id="themeToggle" type="button" class="p-2 rounded-md hover:bg-white/10 focus:outline-none focus:ring-2" aria-label="Toggle color mode">
             <svg id="iconMoon" aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none">
               <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
