@@ -33,6 +33,7 @@ document.documentElement.classList.add('js');
         if (img.src !== abs) img.src = abs;
       }
     };
+    swap('headerLogoIcon');
     swap('heroLogoWordmark');
   }
 

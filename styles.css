@@ -20,6 +20,21 @@ body {
   font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
 }
 
+.header-logo-icon {
+  width: 2.25rem;
+  height: 2.25rem;
+  display: block;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+
+@media (min-width: 640px) {
+  .header-logo-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+}
+
 .hero-logo {
   margin: 0;
   display: flex;
