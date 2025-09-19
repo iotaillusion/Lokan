@@ -1,18 +1,8 @@
 {
-  "name": "lokan",
+  "name": "lokan-site",
   "version": "1.0.0",
-  "description": "Marketing site with contact email delivery backend.",
-  "main": "server.js",
-  "scripts": {
-    "start": "node server.js"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
+  "private": true,
   "dependencies": {
-    "dotenv": "^17.2.2",
-    "express": "^5.1.0",
-    "nodemailer": "^7.0.6"
+    "nodemailer": "^6.9.0"
   }
 }
