@@ -12,10 +12,6 @@ document.documentElement.classList.add('js');
 
   function applyTheme(mode) {
     root.setAttribute('data-theme', mode);
-    const small = document.getElementById('logoSmall');
-    const big = document.getElementById('logoBig');
-    if (small) small.src = mode === 'light' ? '1to1transparentlight.png' : '1to1transparentdark.png';
-    if (big) big.src = mode === 'light' ? 'logotransparentlight.png' : 'logotransparentdark.png';
     const sun = document.getElementById('iconSun');
     const moon = document.getElementById('iconMoon');
     if (sun && moon) {
