@@ -34,7 +34,6 @@ document.documentElement.classList.add('js');
       }
     };
     swap('headerLogoIcon');
-    swap('headerLogoWordmark');
     swap('heroLogoWordmark');
   }
 
